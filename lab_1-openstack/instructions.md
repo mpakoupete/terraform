@@ -227,7 +227,7 @@ Vérification un peu pénible :( , n'oubliez pas que nous sommes sur OpenStack :
 
 cela ne devrait pas fonctionner car le SG par défaut ne nous l'autorise pas.
 
-Apporter les modifications nécessaire afin que le SSH fonctionne. Vous pouvez consulter la documentation de Terraform sur la resource `openstack_networking_secgroup_rule_v2`](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs/resources/networking_secgroup_rule_v2)
+Apporter les modifications nécessaire afin que le SSH fonctionne. Vous pouvez consulter la documentation de Terraform sur la resource [`openstack_networking_secgroup_rule_v2`](https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs/resources/networking_secgroup_rule_v2)
 
 <details><summary>Correction</summary>
 
