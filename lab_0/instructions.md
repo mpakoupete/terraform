@@ -33,3 +33,76 @@ Installer les plugins suivants :
 * HashiCorp Terraform
 * Vagrant
 * vscode-icons
+
+
+## Installation et Configuration de Terraform
+
+**Objectif :** Installer Terraform et configurer les variables d'environnement.
+
+1. **Installation de Terraform**
+
+Assurez-vous que vous avez Terraform téléchargé depuis le site officiel : [https://developer.hashicorp.com/terraform/install](https://developer.hashicorp.com/terraform/install)
+
+Sur un système Linux, vous pouvez utiliser les commandes suivantes pour télécharger la dernière version stable actuelle `1.6.5` et installer Terraform :
+
+```bash
+wget https://releases.hashicorp.com/terraform/1.6.5/terraform_1.6.5_linux_amd64.zip
+unzip terraform_1.6.5_linux_amd64.zip
+sudo mv terraform /usr/local/bin/
+```
+
+2. **Vérification de l'Installation**
+
+Vérifiez si Terraform est correctement installé en exécutant la commande suivante :
+
+```bash
+terraform --version
+```
+
+Si le système ne trouve pas l'exécutable, veuillez ajouter le chemin d'exécution de Terraform à la variable d'environnement `PATH`. Éditez le fichier de profil (par exemple, `~/.bashrc` sur Linux ou `~/.zshrc` sur Mac) et ajoutez la ligne suivante :
+
+```bash
+export PATH=$PATH:/usr/local/bin/
+```
+
+Chargez les nouvelles configurations du fichier de profil :
+
+```bash
+source ~/.bashrc
+```
+
+Vérifiez à nouveau `terraform --version`
+
+Vous devriez voir la version de Terraform que vous venez d'installer.
+
+
+## Installation et Configuration de l'environnement client AWS
+
+1. **Configuration des Credential et installation de AWS CLI**
+
+Si vous avez un fournisseur de cloud spécifique que vous prévoyez d'utiliser avec Terraform (par exemple, AWS, Azure, Google Cloud), configurez les informations d'identification.
+
+Dans le cadre de Lab, nous allons exploiter le Cloud AWS.
+
+Pour AWS, vous pouvez configurer les variables d'environnement `AWS_ACCESS_KEY_ID` et `AWS_SECRET_ACCESS_KEY`.
+
+```bash
+export AWS_ACCESS_KEY_ID="your-access-key-id"
+export AWS_SECRET_ACCESS_KEY="your-secret-access-key"
+```
+
+Installer [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html#getting-started-install-instructions)
+
+```bash 
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+```
+
+Assurez-vous de stocker ces informations d'identification de manière sécurisée.
+
+Configurez aws cli
+
+```bash
+aws configure
+```
