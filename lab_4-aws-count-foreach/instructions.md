@@ -25,27 +25,27 @@ Simple non ? vous pouvez jetez un coup d'oeil à la correction pour celui-ci ;)
 
 <details><summary>Correction</summary>
 
-    ```hcl
-      provider "aws" {
-        region = "us-east-1"
-      }
+```hcl
+  provider "aws" {
+    region = "us-east-1"
+  }
 
-      # Définissez le nombre d'instances EC2 à créer
-      variable "instance_count" {
-        default = 2
-      }
+  # Définissez le nombre d'instances EC2 à créer
+  variable "instance_count" {
+    default = 2
+  }
 
-      # Créez des instances EC2 en utilisant Count
-      resource "aws_instance" "example" {
+  # Créez des instances EC2 en utilisant Count
+  resource "aws_instance" "example" {
 
-        count = var.instance_count        # La présence de count créera 2 répliques identique de cette instance dans le cloud
+    count = var.instance_count        # La présence de count créera 2 répliques identique de cette instance dans le cloud
 
-        ami           = "ami-0230bd60aa48260c6"
-        instance_type = "t2.nano"
-        key_name      = "mawaki-key" # Remplacez par votre nom de clé SSH
-      }
+    ami           = "ami-0230bd60aa48260c6"
+    instance_type = "t2.nano"
+    key_name      = "mawaki-key" # Remplacez par votre nom de clé SSH
+  }
 
-    ```
+```
 
 </details>
 
@@ -58,38 +58,38 @@ N'ouvrez pas de si tôt la correction. ;) on fait travailler un peu Mr le cervea
 
 <details><summary>Correction</summary>
 
-    ```hcl
+```hcl
 
-      provider "aws" {
-        region = "us-east-1"
-      }
+  provider "aws" {
+    region = "us-east-1"
+  }
 
-      # Définissez le nombre d'instances EC2 à créer
-      variable "instance_count" {
-        default = 2
-      }
+  # Définissez le nombre d'instances EC2 à créer
+  variable "instance_count" {
+    default = 2
+  }
 
-      variable "tag_Name" {
-      default     = "webserver-jean"                     # le Tag de notre instance
-      description = "le nom donnée à notre instance"
+  variable "tag_Name" {
+  default     = "webserver-jean"                     # le Tag de notre instance
+  description = "le nom donnée à notre instance"
+}
+
+  # Créez des instances EC2 en utilisant Count
+  resource "aws_instance" "example" {
+
+    count = var.instance_count        # La présence de count créera 2 répliques identique de cette instance dans le cloud
+
+    ami           = "ami-0230bd60aa48260c6"
+    instance_type = "t2.micro"
+    key_name      = "mawaki-key" # Remplacez par votre nom de clé SSH
+
+    tags = {
+      Name = "${var.tag_Name}-${count.index}"    # Incorporation du nom et de l'index dans le Tag
     }
 
-      # Créez des instances EC2 en utilisant Count
-      resource "aws_instance" "example" {
+  }
 
-        count = var.instance_count        # La présence de count créera 2 répliques identique de cette instance dans le cloud
-
-        ami           = "ami-0230bd60aa48260c6"
-        instance_type = "t2.micro"
-        key_name      = "mawaki-key" # Remplacez par votre nom de clé SSH
-
-        tags = {
-          Name = "${var.tag_Name}-${count.index}"    # Incorporation du nom et de l'index dans le Tag
-        }
-
-      }
-
-    ```
+```
 
 </details>
 
@@ -110,33 +110,33 @@ On réfléchit un peu ?
 
 <details><summary>Correction</summary>
 
-    ```hcl
+```hcl
 
-      provider "aws" {
-        region = "us-east-1"
-      }
+  provider "aws" {
+    region = "us-east-1"
+  }
 
-      # Définissez la varible
-      variable "my_apps" {
-        default = ["web", "app", "db"]
-      }
+  # Définissez la varible
+  variable "my_apps" {
+    default = ["web", "app", "db"]
+  }
 
-      # Créez des instances EC2 en utilisant Count
-      resource "aws_instance" "example" {
+  # Créez des instances EC2 en utilisant Count
+  resource "aws_instance" "example" {
 
-        for_each = toset(var.my_apps)         # Parcourir la liste      
+    for_each = toset(var.my_apps)         # Parcourir la liste      
 
-        ami           = "ami-0230bd60aa48260c6"
-        instance_type = "t2.micro"
-        key_name      = "mawaki-key" # Remplacez par votre nom de clé SSH
+    ami           = "ami-0230bd60aa48260c6"
+    instance_type = "t2.micro"
+    key_name      = "mawaki-key" # Remplacez par votre nom de clé SSH
 
-        tags = {
-          Name = each.key                    # Il prend pour chaque itérration la clé
-        }
+    tags = {
+      Name = each.key                    # Il prend pour chaque itérration la clé
+    }
 
-      }
+  }
 
-    ```
+```
 
 </details>
 
@@ -144,40 +144,40 @@ On réfléchit un peu ?
 
 <details><summary>Correction</summary>
 
-    ```hcl
+```hcl
 
-      provider "aws" {
-        region = "us-east-1"
-      }
+  provider "aws" {
+    region = "us-east-1"
+  }
 
-      # Définissez la varible
-      variable "my_apps" {
-        default = ["web", "app"]
-      }
+  # Définissez la varible
+  variable "my_apps" {
+    default = ["web", "app"]
+  }
 
-      # Créez des instances EC2 en utilisant Count
-      resource "aws_instance" "example" {
+  # Créez des instances EC2 en utilisant Count
+  resource "aws_instance" "example" {
 
-        for_each = toset(var.my_apps)        
+    for_each = toset(var.my_apps)        
 
-        ami           = "ami-0230bd60aa48260c6"
-        instance_type = "t2.micro"
-        key_name      = "mawaki-key" # Remplacez par votre nom de clé SSH
+    ami           = "ami-0230bd60aa48260c6"
+    instance_type = "t2.micro"
+    key_name      = "mawaki-key" # Remplacez par votre nom de clé SSH
 
-        tags = {
-          Name = each.key
-        }
+    tags = {
+      Name = each.key
+    }
 
-      }
+  }
 
-      # Créez des buckets S3 en utilisant Foreach
-      resource "aws_s3_bucket" "example" {
-        for_each = toset(var.my_apps)
+  # Créez des buckets S3 en utilisant Foreach
+  resource "aws_s3_bucket" "example" {
+    for_each = toset(var.my_apps)
 
-        bucket = "wizetraining-jean.com-bucket-${each.key}"
-      }
+    bucket = "wizetraining-jean.com-bucket-${each.key}"
+  }
       
-    ```
+```
 
 </details>
 
@@ -185,40 +185,40 @@ On réfléchit un peu ?
 
 <details><summary>Correction</summary>
 
-    ```hcl
-      provider "aws" {
-        region = "us-east-1"
-      }
+```hcl
+provider "aws" {
+  region = "us-east-1"
+}
 
-      # Définissez la varible
-      variable "my_apps" {
-        default = ["web", "app"]
-      }
+# Définissez la varible
+variable "my_apps" {
+  default = ["web", "app"]
+}
 
-      # Créez des instances EC2 en utilisant Count
-      resource "aws_instance" "example" {
+# Créez des instances EC2 en utilisant Count
+resource "aws_instance" "example" {
 
-        for_each = toset(var.my_apps)        
+  for_each = toset(var.my_apps)        
 
-        ami           = "ami-0230bd60aa48260c6"
-        instance_type = "t2.micro"
-        key_name      = "mawaki-key" # Remplacez par votre nom de clé SSH
+  ami           = "ami-0230bd60aa48260c6"
+  instance_type = "t2.micro"
+  key_name      = "mawaki-key" # Remplacez par votre nom de clé SSH
 
-        tags = {
-          Name = each.key
-        }
+  tags = {
+    Name = each.key
+  }
 
-        iam_instance_profile = "EC2AccessS3Admin"
+  iam_instance_profile = "EC2AccessS3Admin"
 
-      }
+}
 
-      # Créez des buckets S3 en utilisant Foreach
-      resource "aws_s3_bucket" "example" {
-        for_each = toset(var.my_apps)
+# Créez des buckets S3 en utilisant Foreach
+resource "aws_s3_bucket" "example" {
+  for_each = toset(var.my_apps)
 
-        bucket = "wizetraining-jean.com-bucket-${each.key}"
-      }
-    ```
+  bucket = "wizetraining-jean.com-bucket-${each.key}"
+}
+```
 
 </details>
 
