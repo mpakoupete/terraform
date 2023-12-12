@@ -2,7 +2,7 @@
 
 **Objectif :** L'objectif est ici de savoir comment importer une infrastructure existante qui a été créée en dehors de Terraform et l'incorporer dans votre state terraform
 
-_Il est important de noter que La commande CLI `import`` terraform ne peut qu'importer des ressources dans l'état. L'importation via la commande CLI ne génère pas de configuration. Si vous souhaitez générer la configuration d'accompagnement pour les ressources importées, utilisez plutôt le bloc d'importation._
+_Il est important de noter que La commande CLI `import` terraform ne peut qu'importer des ressources dans l'état. L'importation via la commande CLI ne génère pas de configuration. Si vous souhaitez générer la configuration d'accompagnement pour les ressources importées, utilisez plutôt le bloc d'importation._
 
 1. **Création d'un Répertoire de Travail**
 
