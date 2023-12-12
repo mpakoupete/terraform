@@ -224,6 +224,18 @@ resource "aws_s3_bucket" "example" {
 
 9. Ajouter un output à votre code pour lister les IP publiques et les Nom de DNS publiques de vos instances.
 
+<details><summary>Correction</summary>
+
+```hcl
+output "public_ips" {
+  value = {
+    for ip_pub, instance in aws_instance.example : ip_pub => instance.public_ip
+  }
+}
+```
+
+</details>
+
 10. Tester et vérifier que les instances EC2 ont accès aux Buckets en seconnectant à ces instances par ssh et en exécutant simplement la commande :
      `aws s3 ls`
      `aws s3 ls s3://wizetraining-jean.com-bucket-web/`
