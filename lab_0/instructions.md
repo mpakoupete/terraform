@@ -78,7 +78,7 @@ Vous devriez voir la version de Terraform que vous venez d'installer.
 
 ## Installation et Configuration de l'environnement client AWS
 
-1. **Configuration des Credential et installation de AWS CLI**
+**Configuration des Credential et installation de AWS CLI**
 
 Si vous avez un fournisseur de cloud spécifique que vous prévoyez d'utiliser avec Terraform (par exemple, AWS, Azure, Google Cloud), configurez les informations d'identification.
 
