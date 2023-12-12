@@ -1,4 +1,4 @@
-# Lab 6: Importer une infrastructure existant et l'incorporer dans votre state terraform
+# Lab 7 : Importer une infrastructure existant et l'incorporer dans votre state terraform
 
 **Objectif :** L'objectif est ici de savoir comment importer une infrastructure existante qui a été créée en dehors de Terraform et l'incorporer dans votre state terraform
 
