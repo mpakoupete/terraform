@@ -46,8 +46,8 @@ Assurez-vous que vous avez Terraform téléchargé depuis le site officiel : [ht
 Sur un système Linux, vous pouvez utiliser les commandes suivantes pour télécharger la dernière version stable actuelle `1.6.5` et installer Terraform :
 
 ```bash
-wget https://releases.hashicorp.com/terraform/1.6.5/terraform_1.6.5_linux_amd64.zip
-unzip terraform_1.6.5_linux_amd64.zip
+wget https://releases.hashicorp.com/terraform/1.6.5/terraform_1.9.5_linux_amd64.zip
+unzip terraform_1.9.5_linux_amd64.zip
 sudo mv terraform /usr/local/bin/
 ```
 
