@@ -26,4 +26,4 @@ Juque là nous avons suffisemment des ressources, fonctionalité de terraform...
 
 4. **Interprétation du code**
 
-Visualisez le code Terraform contenu dans ce repo et interprétez le.
+Visualisez le code Terraform contenu dans ce repo et interprétez le. 
