@@ -24,6 +24,17 @@ Juque là nous avons suffisemment des ressources, fonctionalité de terraform...
 * Ecrire un fichier `output.tf` qui contiendra tous les outputs
 
 
-4. **Interprétation du code**
+4. **Déployez un Cluster kubernetes EKS**
 
-Visualisez le code Terraform contenu dans ce repo et interprétez le. 
+Vous avez pour mission de déployer un cluster kubernetes EKS, un de vos collègue a développé le code terraform contenu dans le répertoire `eks-deploy`
+* Visualisez le code Terraform contenu dans ce dit repertoire et interprétez le.
+* Quel inconvenient trouvez vous à ce code ?
+* Développez un nouveau code plus simple en prenant avantage de l'utilisation des [modules public de Terraform](https://registry.terraform.io/browse/modules)
+
+<details><summary>Correction</summary>
+
+https://github.com/hashicorp/learn-terraform-provision-eks-cluster/blob/main/main.tf
+
+Une explication de la procédure : https://developer.hashicorp.com/terraform/tutorials/kubernetes/eks 
+
+</details>
